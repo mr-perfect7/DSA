@@ -1,5 +1,4 @@
 package LinkedList;
-
 public class LengthOfLL{
     static class Node{
         int data;
@@ -14,5 +13,15 @@ public class LengthOfLL{
         Node b = new Node(2);
         Node c = new Node(3);
 
+        a.next = b;
+        b.next = c;
+        
+        Node temp = a;
+        int length = 0;
+        while (temp!=null) {
+            temp = temp.next;
+            length++;
+        }
+        System.out.println(length);
     }
 }

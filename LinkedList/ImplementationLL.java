@@ -66,7 +66,23 @@ public class ImplementationLL {
             }
             return length;
         }
-
+        public int getValue(int idx) {
+            if(idx<0){
+                // throw new IndexOutOfBoundsException("Negative Index!");
+                System.out.print("Invalid Index!");
+                return -1;
+            }
+            Node temp = head;
+            int i = 0;
+            while (temp!=null) {
+                if(i == idx){
+                    return temp.data;
+                }
+                temp = temp.next;
+                i++;
+            }
+            return -1;
+        }
     }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -80,6 +96,6 @@ public class ImplementationLL {
         ll.insertAt(9, 100);
         ll.display();
         System.out.println("Length of LL : "+ll.size());
-
+        System.out.println(ll.getValue(-2));
     }
 }

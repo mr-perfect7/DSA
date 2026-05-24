@@ -49,6 +49,22 @@ public class ImplementationLL {
             newNode.next = temp.next;
             temp.next = newNode;
         }
+        public void deleteAt(int idx){
+            if(idx == 0){
+                head = head.next;
+                return;
+            }else if(idx<0 || idx>size()){
+                System.out.println("DLETE action is not completed,Invalid Index : "+idx);
+                return;
+            }
+
+            Node temp = head;
+            for(int i=1;i<idx;i++){
+               temp = temp.next;
+            }
+             temp.next = temp.next.next;
+             tail = temp;
+        }
         public void display(){
             Node temp = head;
             while (temp!=null) {
@@ -95,7 +111,9 @@ public class ImplementationLL {
         ll.append(11);
         ll.insertAt(9, 100);
         ll.display();
-        System.out.println("Length of LL : "+ll.size());
-        System.out.println(ll.getValue(-2));
+        // System.out.println("Length of LL : "+ll.size());
+        // System.out.println(ll.getValue(-2));
+        ll.deleteAt(55);
+        ll.display();
     }
 }

@@ -22,7 +22,7 @@ public class NthNodeFromEnd {
             throw new IllegalArgumentException("n should less than or equals to size");
         }
         temp = head;
-        for(int i=0;i<size-n+1;i++){
+        for(int i=1;i<size-n+1;i++){
             temp = temp.next;
         }
         return temp;
@@ -40,7 +40,7 @@ public class NthNodeFromEnd {
         d.next = e;
 
         try {
-            Node q = NthNode(e, 710);
+            Node q = NthNode(a, 5);
             System.out.println(q.val);
         } catch (Exception ex) {
             System.out.println(ex.getLocalizedMessage());

@@ -27,6 +27,22 @@ public class NthNodeFromEnd {
         }
         return temp;
     }
+    // Approach - 2(slow and fast pointer)
+    public static Node NthNode2(Node head, int n){
+        if(n<=0){
+            throw new IllegalArgumentException("n Should be >0");
+        }
+        Node slow = head;
+        Node fast = head;
+        for(int i=1;i<=n;i++){
+            fast = fast.next;
+        }
+        while (fast!=null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
     public static void main(String[] args) {
         Node a = new Node(0);
         Node b = new Node(1);
@@ -40,8 +56,10 @@ public class NthNodeFromEnd {
         d.next = e;
 
         try {
-            Node q = NthNode(a, 5);
-            System.out.println(q.val);
+            Node p = NthNode(a, 0);
+            System.out.println("Normal approach: "+p.val);
+            Node q = NthNode2(a, 0);
+            System.out.println("Slow/fast pointer approach: "+q.val);
         } catch (Exception ex) {
             System.out.println(ex.getLocalizedMessage());
         }

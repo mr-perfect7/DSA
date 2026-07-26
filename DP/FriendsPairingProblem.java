@@ -9,7 +9,7 @@ public class FriendsPairingProblem {
         int n = sc.nextInt();
         int dp[] = new int[n+1];
         Arrays.fill(dp, -1);
-        System.out.println(pairTab(n,dp));
+        System.out.println(pairIterative(n));
     }
 
     private static int pair(int n, int dp[]) {
@@ -28,7 +28,7 @@ public class FriendsPairingProblem {
         int dp[] = new int[n+1];
         dp[1] = 1;
         dp[2] = 2;
-        for(int i=3;i<n;i++){
+        for(int i=3;i<=n;i++){
             dp[i] = dp[i-1] + (i-1) * dp[i-2];
         }
         return dp[n];
